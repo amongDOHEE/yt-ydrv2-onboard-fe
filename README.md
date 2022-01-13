@@ -11,12 +11,16 @@ These instructions will get you a copy of the project up and running on your loc
 .env
 In the API, URL settings are done by variables in the .env file.
 
+```
 REACT_APP_SOCIAL: 
 This is the URL where you send a request to SandAuth to get a login token.
+
 REACT_APP_VERIFY: 
 This is the URL that asks SandAuth if the token is valid or not.
+
 REACT_APP_KEY: 
 This key is a client key for Google social login authentication.
+```
 
 ### Prerequisites
 

@@ -20,7 +20,7 @@ const MainPage: React.FC = (): JSX.Element => {
   useEffect(() => {
     if(isvalid) {
       setValid(false);
-      navigate("/login", { replace: true });
+      navigate("/channel", { replace: true });
     }
   }, [isvalid]);
 
