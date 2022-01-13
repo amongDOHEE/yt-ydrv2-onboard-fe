@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.logo-image{
+  margin: 0 auto;
+  margin-top: 30vh;
+  margin-bottom: 5vh;
+  width: 300px;
+  height: 85px;
+}
+
+.login-text {
+  margin: 0 auto;
+  margin-top: 30vh;
+  margin-bottom: 5vh;
+}
+
+.logout-button {
+  width: 200px;
+  height: 10vh;
+  font-size: 14px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: none;
+}
