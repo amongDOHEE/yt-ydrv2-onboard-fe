@@ -14,7 +14,7 @@ import { ChannelDaily, ChannelInfo, ChannelSummary } from "../interface/interfac
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
-  const [channelInfo, setChannelInfo] = useState<ChannelInfo>();
+  const [channelInfo, setChannelInfo] = useState<ChannelInfo>({title: ""});
   const [channelSummary, setChannelSummary] = useState<ChannelSummary>();
   const [cahhnelDaily, setChannelDaily] = useState<ChannelDaily[]>([]);
 
@@ -36,7 +36,13 @@ const ChannelPage: React.FC = (): JSX.Element => {
       <NavigationBar/>
       <Search/>
       <Grid container spacing={1}>
-        <MainCard/>
+        <MainCard
+          title={channelInfo.title}
+          total_videos={channelInfo.total_videos}
+          total_views={channelInfo.total_views}
+          published_at={channelInfo.published_at}
+          thumbnail={channelInfo.thumbnail}
+        />
       </Grid>
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
