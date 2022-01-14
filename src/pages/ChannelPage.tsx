@@ -9,12 +9,14 @@ import Card from "../components/InfoCard";
 import MainCard from "../components/MainCard";
 import NavigationBar from "../components/NavigationBar";
 import Graph from "../components/Graph";
+import Search from "../components/Search";
+import { ChannelDaily, ChannelInfo, ChannelSummary } from "../interface/interface";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
-  const [channelInfo, setChannelInfo] = useState<string[]>([]);
-  const [channelSummary, setChannelSummary] = useState<string[]>([]);
-  const [cahhnelDaily, setChannelDaily] = useState<string[]>([]);
+  const [channelInfo, setChannelInfo] = useState<ChannelInfo>();
+  const [channelSummary, setChannelSummary] = useState<ChannelSummary>();
+  const [cahhnelDaily, setChannelDaily] = useState<ChannelDaily[]>([]);
 
   useEffect(() => {
     const accessToken = localStorage.getItem('auth_token');
@@ -32,6 +34,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
   return (
     <div className="channelPage">
       <NavigationBar/>
+      <Search/>
       <Grid container spacing={1}>
         <MainCard/>
       </Grid>

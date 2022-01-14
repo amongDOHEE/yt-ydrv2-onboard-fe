@@ -25,7 +25,7 @@ const MainCard : React.FC = () => {
             <Grid item xs>
               <p></p>
               <Typography gutterBottom variant="subtitle1" component="div">
-                <b>침착맨</b>
+                <b>{}</b>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 비디오
