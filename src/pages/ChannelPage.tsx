@@ -4,19 +4,32 @@ import { getChannel_Daily, getChannel_Info, getChannel_List, getChannel_Summary 
 
 //components
 import ButtonBasic from "../components/Button";
-import FormRow from "../components/FromRow";
+import FormRow, { CardInfo } from "../components/FromRow";
 import Card from "../components/InfoCard";
 import MainCard from "../components/MainCard";
 import NavigationBar from "../components/NavigationBar";
 import Graph from "../components/Graph";
 import Search from "../components/Search";
 import { ChannelDaily, ChannelInfo, ChannelSummary } from "../interface/interface";
+import DataCard from "../components/FromRow";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
   const [channelInfo, setChannelInfo] = useState<ChannelInfo>({title: ""});
   const [channelSummary, setChannelSummary] = useState<ChannelSummary>();
   const [cahhnelDaily, setChannelDaily] = useState<ChannelDaily[]>([]);
+
+  const Card_1 : CardInfo[] = [
+    {name: "구독자 조회 비중", value: channelSummary?.subs_in_views},
+    {name: "영상 평균 수명", value: channelSummary?.video_life_duration},
+    {name: "업로드 1주 평균 조회수", value: channelSummary?.avg_view_per_viewer},
+  ]; 
+
+  const Card_2 : CardInfo[] = [
+    {name: "조회수 1회당 수익", value: channelSummary?.rpm},
+    {name: "썸네일 클릭률", value: channelSummary?.thumbnail_click_rate},
+    {name: "댓글 긍정 & 부정", value: channelSummary?.comment?.positive},
+  ]; 
 
   useEffect(() => {
     const accessToken = localStorage.getItem('auth_token');
@@ -44,16 +57,10 @@ const ChannelPage: React.FC = (): JSX.Element => {
           thumbnail={channelInfo.thumbnail}
         />
       </Grid>
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1}>
-        <Grid container item spacing={3}>
-          <FormRow/>
-        </Grid>
-        <Grid container item spacing={3}>
-          <FormRow/>
-        </Grid>
-      </Grid>
-      </Box>
+      <DataCard
+        firstRow={Card_1}
+        secondRow={Card_2}
+      />
       <Graph/>
     </div>
   );

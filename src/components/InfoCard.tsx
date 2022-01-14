@@ -5,6 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { CardInfo } from './FromRow';
 
 const bull = (
   <Box
@@ -15,16 +16,16 @@ const bull = (
   </Box>
 );
 
-export default function BasicCard() {
+export default function BasicCard(props: CardInfo) {
   return (
     <Card className="card-info">
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          구독자 조회 비중
+          {props.name}
         </Typography>
         <p></p>
         <Typography variant="h4" component="div">
-          <b>5.16</b>
+          <b>{props.value}</b>
         </Typography>
       </CardContent>
     </Card>

@@ -84,7 +84,7 @@ export const getChannel_Summary = async (accessToken: string, channelId: string)
         thumbnail_click_rate: channelSummary.thumbnail_click_rate.toFixed(2),
         comment: {
           positive: channelSummary.comment.positive.toFixed(2),
-          nagative: channelSummary.comment.nagative.toFixed(2)
+          nagative: channelSummary.comment.negative.toFixed(2)
         }
       }
 
