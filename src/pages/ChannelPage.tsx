@@ -7,6 +7,7 @@ import ButtonBasic from "../components/Button";
 import FormRow from "../components/FromRow";
 import Card from "../components/InfoCard";
 import MainCard from "../components/MainCard";
+import NavigationBar from "../components/NavigationBar";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
@@ -29,7 +30,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
 
   return (
     <div className="channelPage">
-      <img className="logo-image-channel" alt="sandbox-logo" src="https://platum.kr/wp-content/uploads/2018/09/aaa.png"/>
+      <NavigationBar/>
       <Grid container spacing={1}>
         <MainCard/>
       </Grid>

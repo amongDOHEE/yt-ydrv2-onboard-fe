@@ -22,8 +22,9 @@ export default function BasicCard() {
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           구독자 조회 비중
         </Typography>
-        <Typography variant="h5" component="div">
-          5.16
+        <p></p>
+        <Typography variant="h4" component="div">
+          <b>5.16</b>
         </Typography>
       </CardContent>
     </Card>

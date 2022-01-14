@@ -14,18 +14,18 @@ const Img = styled('img')({
 
 const MainCard : React.FC = () => {
   return (
-    <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
+    <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1, marginTop: 3, marginBottom: 3 }}>
       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
             <Img alt="complex" src="https://yt3.ggpht.com/ytc/AKedOLQPSkWqeI1LiBS9_gvdvA2QhshcDpYYkCtLtIskFg=s176-c-k-c0x00ffffff-no-rj" />
           </ButtonBase>
         </Grid>
-        <Grid item xs={12} sm container>
-          <Grid item xs container direction="column" spacing={2}>
+        <Grid item xs={12} sm container className='align-center'>
             <Grid item xs>
+              <p></p>
               <Typography gutterBottom variant="subtitle1" component="div">
-                침착맨
+                <b>침착맨</b>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 비디오
@@ -36,7 +36,7 @@ const MainCard : React.FC = () => {
               <Typography variant="body2" color="text.secondary">
                 시작일
               </Typography>
-            </Grid>
+            
           </Grid>
         </Grid>
       </Grid>
