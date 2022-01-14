@@ -1,5 +1,11 @@
+import { Box, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getChannel_Daily, getChannel_Info, getChannel_List, getChannel_Summary } from "../api/channelAPI";
+
+//components
+import ButtonBasic from "../components/Button";
+import FormRow from "../components/FromRow";
+import Card from "../components/InfoCard";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
@@ -22,7 +28,17 @@ const ChannelPage: React.FC = (): JSX.Element => {
 
   return (
     <div className="channelPage">
-      <p>this is channel page</p>
+      <img className="logo-image-channel" alt="sandbox-logo" src="https://platum.kr/wp-content/uploads/2018/09/aaa.png"/>
+      <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={1}>
+        <Grid container item spacing={3}>
+          <FormRow/>
+        </Grid>
+        <Grid container item spacing={3}>
+          <FormRow/>
+        </Grid>
+      </Grid>
+      </Box>
     </div>
   );
 };

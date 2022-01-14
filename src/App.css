@@ -10,6 +10,14 @@
   height: 85px;
 }
 
+.logo-image-channel {
+  margin: 0 auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 180px;
+  height: 50px;
+}
+
 .login-text {
   margin: 0 auto;
   margin-top: 30vh;
@@ -23,4 +31,16 @@
   color: white;
   border-radius: 10px;
   box-shadow: none;
+}
+
+.card {
+  margin: 0 auto;
+  min-width: 275;
+  min-height: 150;
+  margin: 20px;
+  height: 25vh;
+}
+
+.box {
+  margin: 0 auto;
 }
