@@ -8,6 +8,7 @@ import FormRow from "../components/FromRow";
 import Card from "../components/InfoCard";
 import MainCard from "../components/MainCard";
 import NavigationBar from "../components/NavigationBar";
+import Graph from "../components/Graph";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
@@ -44,6 +45,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
         </Grid>
       </Grid>
       </Box>
+      <Graph/>
     </div>
   );
 };
