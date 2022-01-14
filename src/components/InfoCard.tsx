@@ -17,7 +17,7 @@ const bull = (
 
 export default function BasicCard() {
   return (
-    <Card className="card">
+    <Card className="card-info">
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           구독자 조회 비중

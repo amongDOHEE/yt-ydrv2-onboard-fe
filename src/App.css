@@ -33,7 +33,7 @@
   box-shadow: none;
 }
 
-.card {
+.card-info {
   margin: 0 auto;
   min-width: 275;
   min-height: 150;
@@ -41,6 +41,11 @@
   height: 25vh;
 }
 
-.box {
+.card-main {
   margin: 0 auto;
+  min-width: 300;
+  min-height: 150;
+  width: 80vh;
+  margin: 20px;
+  height: 30vh;
 }

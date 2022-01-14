@@ -6,6 +6,7 @@ import { getChannel_Daily, getChannel_Info, getChannel_List, getChannel_Summary 
 import ButtonBasic from "../components/Button";
 import FormRow from "../components/FromRow";
 import Card from "../components/InfoCard";
+import MainCard from "../components/MainCard";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
@@ -29,6 +30,9 @@ const ChannelPage: React.FC = (): JSX.Element => {
   return (
     <div className="channelPage">
       <img className="logo-image-channel" alt="sandbox-logo" src="https://platum.kr/wp-content/uploads/2018/09/aaa.png"/>
+      <Grid container spacing={1}>
+        <MainCard/>
+      </Grid>
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         <Grid container item spacing={3}>
