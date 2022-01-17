@@ -4,6 +4,7 @@ const Chart = (props: any) => {
   const colors = ['#AEB404', '#FA5858', '#FACC2E'];
 
   const option = {
+    width: "80%",
     color: colors,
     tooltip: {
       trigger: 'axis'

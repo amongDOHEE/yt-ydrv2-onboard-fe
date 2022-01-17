@@ -7,6 +7,11 @@ export interface GoogleToken {
   access_Token: string
 }
 
+export interface ChannelList {
+  id?: string,
+  title?: string
+}
+
 export interface ChannelInfo {
   title: string
   total_views?: number

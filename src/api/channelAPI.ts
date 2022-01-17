@@ -1,12 +1,14 @@
 import axios from "axios";
-import { ChannelDaily, ChannelInfo, ChannelSummary } from "../interface/interface";
+import { ChannelDaily, ChannelInfo, ChannelList, ChannelSummary } from "../interface/interface";
 
 const channel_search_URL: string = process.env.REACT_APP_CHANNEL_SEARCH + "";
 const channel_info_URL: string = process.env.REACT_APP_CHANNEL_INFO + "";
 const channel_summary_URL: string = process.env.REACT_APP_CHANNEL_SUMMARY + "";
 const chennel_basic_URL: string = process.env.REACT_APP_CHANNEL_BASIC + "";
 
-export const getChannel_List = async (accessToken: string): Promise<string[]> => {
+export const getChannel_List = async (accessToken: string): Promise<ChannelList[]> => {
+  const empty: ChannelList[] = [];
+
   try {
     const response = await axios.get(channel_search_URL, {
       headers: {
@@ -14,8 +16,11 @@ export const getChannel_List = async (accessToken: string): Promise<string[]> =>
       }
     });
     if (response && response.status === 200) {
-      const channelId: string[] = response.data.map((channelInfo: any) => {
-        return channelInfo.channel_id;
+      const channelId: ChannelList[] = response.data.map((channelInfo: any) => {
+        return {
+          id: channelInfo.channel_id,
+          title: channelInfo.title
+        }
       });
       return channelId;
     }
@@ -23,7 +28,7 @@ export const getChannel_List = async (accessToken: string): Promise<string[]> =>
   catch (e) {
     console.log(e);
   }
-  return [""];
+  return empty;
 }
 
 export const getChannel_Info = async (accessToken: string, channelId: string): Promise<ChannelInfo> => {

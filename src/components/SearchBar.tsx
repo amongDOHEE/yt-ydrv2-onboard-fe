@@ -14,21 +14,21 @@ const Search: React.FC = () => {
   return (
     <Box
       component="form"
-      sx={{'& > :not(style)': { m: 1 }}}
+      sx={{ '& > :not(style)': { m: 1 } }}
       noValidate
       autoComplete="off"
-      style={{marginTop: "2.5vh"}}
+      style={{ marginTop: "2.5vh" }}
     >
-    <FormControl>
-      <InputLabel htmlFor="component-outlined">Search</InputLabel>
-      <OutlinedInput
-        id="component-outlined"
-        value={name}
-        onChange={handleChange}
-        label="Search"
-        style={{ width: "40vw"}}
-      />
-    </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="component-outlined">Search</InputLabel>
+        <OutlinedInput
+          id="component-outlined"
+          value={name}
+          onChange={handleChange}
+          label="Search"
+          style={{ width: "40vw" }}
+        />
+      </FormControl>
     </Box>
   );
 };

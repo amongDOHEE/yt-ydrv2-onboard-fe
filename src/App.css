@@ -35,10 +35,30 @@
 
 .card-info {
   margin: 0 auto;
-  min-width: 275;
-  min-height: 150;
+  min-width: 275px;
+  min-height: 150px;
   margin: 20px;
   height: 23vh;
+}
+
+.card-search {
+  background-color: #E6E6E6;
+  padding: 10px 0px 10px 0px;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 2px;
+  width: 40vw;
+  min-width: 100px;
+  min-height: 10px;
+  height: 5vh;
+  border: none;
+  border-radius: 1px;
+}
+
+.card-id-text {
+  margin-left: 10px;
+  color: #848484;
+  display: inline;
 }
 
 .card-main {
