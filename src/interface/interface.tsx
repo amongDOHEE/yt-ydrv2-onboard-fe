@@ -33,7 +33,7 @@ export interface ChannelSummary {
 }
 
 export interface ChannelDaily {
-  total_views: number
-  total_subscribers?: number
-  est_partner_rev?: number
+  total_views: number[]
+  total_subscribers?: number[]
+  est_partner_rev?: number[]
 } 

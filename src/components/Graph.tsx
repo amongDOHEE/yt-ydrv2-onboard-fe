@@ -2,10 +2,17 @@ import React from 'react';
 import ApexCharts from 'react-apexcharts';
 
 type seriesType = {
-  series: {
-    name?: string;
-    data?: number[];
-  }[]
+  series: [
+    {
+      data?: number[]
+    },
+    {
+      data?: number[]
+    },
+    {
+      data?: number[]
+    },
+  ],
 };
 
 type optionsType = {
@@ -32,7 +39,7 @@ type optionsType = {
       };
     };
     xaxis: {
-        categories: string[];
+      categories: string[];
     };
   }
 };
@@ -42,18 +49,32 @@ export default class Graph extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
 
-    this.state = {
-      series: [{
-        name: "Desktops",
-        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-      },
-      {
-        name: "Data2",
-        data: [1, 4, 15, 41, 69, 32, 39, 31, 48]
-      }],
+    let view = props.view;
+    let subscriber = props.subscriber;
+    let est = props.est;
 
-      options: {  
+    this.state = {
+      series: [
+        {
+          name: "구독자",
+          data: [1, 2, 3]
+        },
+        {
+          name: "조회수",
+          data: [233000, 50000, 600000]
+        },
+        {
+          name: "수익",
+          data: [2, 3, 4]
+        },
+
+      ],
+
+      options: {
         chart: {
+          selection: {
+            enabled: true
+          },
           zoom: {
             enabled: false
           }
@@ -62,10 +83,10 @@ export default class Graph extends React.Component<any, any> {
           enabled: false
         },
         stroke: {
-          curve: 'straight'
+          curve: 'smooth'
         },
         title: {
-          text: 'Channel Transition',
+          text: '채널 추이',
           align: 'left',
           style: {
             fontSize: "20px"
@@ -78,9 +99,38 @@ export default class Graph extends React.Component<any, any> {
           },
         },
         xaxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-        }
-      } 
+          categories: ['Oct', 'Nov', 'Dec'],
+        },
+        yaxis: [
+          {
+            title: {
+              text: "조회수"
+            },
+          },
+          {
+            opposite: true,
+            title: {
+              text: "구독자"
+            }
+          },
+          {
+            opposite: true,
+            title: {
+              text: "수익"
+            }
+          }
+        ],
+        tooltip: {
+          shared: false,
+          intersect: true,
+        },
+        legend: {
+          horizontalAlign: "right",
+          offsetX: 0,
+          position: 'top',
+          fontSize: '18px'
+        },
+      }
     }
   };
 
@@ -91,7 +141,7 @@ export default class Graph extends React.Component<any, any> {
         series={this.state.series}
         types='line'
         height={300}
-        />
+      />
     );
   }
 }
