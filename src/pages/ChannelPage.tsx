@@ -3,15 +3,13 @@ import { useEffect, useState } from "react";
 import { getChannel_Daily, getChannel_Info, getChannel_List, getChannel_Summary } from "../api/channelAPI";
 
 //components
-import ButtonBasic from "../components/Button";
-import FormRow, { CardInfo } from "../components/FromRow";
-import Card from "../components/InfoCard";
+import { CardInfo } from "../components/FromRow";
 import MainCard from "../components/MainCard";
 import NavigationBar from "../components/NavigationBar";
-import Graph from "../components/Graph";
 import Search from "../components/Search";
 import { ChannelDaily, ChannelInfo, ChannelSummary } from "../interface/interface";
 import DataCard from "../components/FromRow";
+import Chart from "../components/Chart";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   const [channelList, setChannelList] = useState<string[]>([]);
@@ -61,7 +59,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
         firstRow={Card_1}
         secondRow={Card_2}
       />
-      <Graph
+      <Chart
         view={channelDaily?.total_views}
         subscriber={channelDaily?.total_subscribers}
         est={channelDaily?.est_partner_rev}
