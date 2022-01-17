@@ -23,10 +23,12 @@
 }
 
 .logout-button {
-  width: 200px;
-  height: 10vh;
+  width: 100px;
+  height: 40px;
   font-size: 14px;
+  font-weight: 500;
   color: white;
+  border: none;
   border-radius: 10px;
   box-shadow: none;
 }

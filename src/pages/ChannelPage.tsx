@@ -26,7 +26,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
   const Card_2: CardInfo[] = [
     { name: "조회수 1회당 수익", value: channelSummary?.rpm },
     { name: "썸네일 클릭률", value: channelSummary?.thumbnail_click_rate },
-    { name: "댓글 긍정 & 부정", value: channelSummary?.comment?.positive },
+    { name: "댓글 긍정 반응 비율", value: channelSummary?.comment?.positive },
   ];
 
   useEffect(() => {

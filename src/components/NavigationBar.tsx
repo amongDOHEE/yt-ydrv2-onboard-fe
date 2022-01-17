@@ -10,11 +10,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import LogoutButton from './LogoutButton';
 
 const pages = ['Channel', 'Video'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const NavigationBar : React.FC = () => {
+const NavigationBar: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -43,7 +44,7 @@ const NavigationBar : React.FC = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-          <img className="logo-image-channel" alt="sandbox-logo" src="https://platum.kr/wp-content/uploads/2018/09/aaa.png"/>
+            <img className="logo-image-channel" alt="sandbox-logo" src="https://platum.kr/wp-content/uploads/2018/09/aaa.png" />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -93,11 +94,7 @@ const NavigationBar : React.FC = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+            <LogoutButton />
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

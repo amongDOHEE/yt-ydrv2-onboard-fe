@@ -1,7 +1,7 @@
 import ReactECharts from 'echarts-for-react';
 
 const Chart = (props: any) => {
-  const colors = ['#5793f3', '#d14a61', '#675bba'];
+  const colors = ['#AEB404', '#FA5858', '#FACC2E'];
 
   const option = {
     color: colors,
