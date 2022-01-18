@@ -20,6 +20,18 @@ This is the URL that asks SandAuth if the token is valid or not.
 
 REACT_APP_KEY: 
 This key is a client key for Google social login authentication.
+
+REACT_APP_CHANNEL_SEARCH:
+This is the URL used to load the list of channels.
+
+REACT_APP_CHANNEL_BASIC:
+The most basic form of URL used to get channel information.
+
+REACT_APP_CHANNEL_INFO: 
+This is the URL used to get specific channel information (title, number of subscribers, etc.)
+
+REACT_APP_CHANNEL_SUMMARY:
+This is a URL where you can get the channel trend information for a specific period.
 ```
 
 ### Prerequisites
