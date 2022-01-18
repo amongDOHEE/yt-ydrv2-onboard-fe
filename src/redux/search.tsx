@@ -1,14 +1,27 @@
-const initialState = {
+const init_input = {
   input: "",
+};
+
+const init_channelId = {
   channelId: "",
 };
 
-export const searchTitle = (state = initialState, action: { type: any; userInputValue: string; channelID: string },) => {
+
+export const searchTitle = (state = init_input, action: { type: any; userInputValue: string }) => {
   switch (action.type) {
     case 'ENTER':
       return action.userInputValue
-    case 'SELECT_CHANNEL':
-      return action.channelID
+    default:
+      return state;
+  }
+}
+
+export const searchId = (state = init_channelId, action: { type: any; channelId: string },) => {
+  switch (action.type) {
+    case 'SELECT':
+      return {
+        channelId: action.channelId
+      }
     default:
       return state;
   }

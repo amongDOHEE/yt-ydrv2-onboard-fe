@@ -1,9 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const SearchList = (props: any) => {
+  const dispatch = useDispatch();
+
   const clickList = (event: React.MouseEvent<HTMLElement>) => {
-    const test = event.currentTarget.innerText.split("/");
-    console.log(test[1]) //id 값 추출
+    const id = event.currentTarget.innerText.split("/");
+    dispatch({ type: 'SELECT', channelId: id[1] });
   };
 
   return (

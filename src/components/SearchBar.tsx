@@ -36,9 +36,6 @@ const Search: React.FC = () => {
           style={{ width: "35vw" }}
         />
       </FormControl>
-      <Button id="search-button" onClick={enterInput} style={{ height: '55px', backgroundColor: 'gray' }}>
-        <BsSearch fontSize={25} color='white' />
-      </Button>
     </Box>
   );
 };

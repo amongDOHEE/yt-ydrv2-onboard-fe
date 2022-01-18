@@ -16,19 +16,19 @@ const FormRow = (props: CardInfo[]) => {
   return (
     <React.Fragment>
       <Grid item xs={4}>
-        <InfoCard 
+        <InfoCard
           name={props[0].name}
           value={props[0].value}
         />
       </Grid>
       <Grid item xs={4}>
-        <InfoCard 
+        <InfoCard
           name={props[1].name}
           value={props[1].value}
         />
       </Grid>
       <Grid item xs={4}>
-        <InfoCard 
+        <InfoCard
           name={props[2].name}
           value={props[2].value}
         />
@@ -44,10 +44,10 @@ const DataCard = (props: Rows) => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         <Grid container item spacing={3}>
-          { FormRow(props.firstRow) }
+          {FormRow(props.firstRow)}
         </Grid>
         <Grid container item spacing={3}>
-          { FormRow(props.secondRow) }
+          {FormRow(props.secondRow)}
         </Grid>
       </Grid>
     </Box>

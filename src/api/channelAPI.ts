@@ -60,7 +60,7 @@ export const getChannel_Info = async (accessToken: string, channelId: string): P
 };
 
 export const getChannel_Summary = async (accessToken: string, channelId: string): Promise<ChannelSummary> => {
-  const empty: ChannelSummary = { subs_in_views: 0 };
+  const empty: ChannelSummary = {};
 
   try {
     const response = await axios.get(`${channel_summary_URL}?cid=${channelId}`, {
@@ -86,7 +86,7 @@ export const getChannel_Summary = async (accessToken: string, channelId: string)
           nagative: channelSummary.comment.negative.toFixed(2)
         }
       }
-
+      console.log(result)
       return result;
     }
   }

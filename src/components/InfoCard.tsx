@@ -24,7 +24,7 @@ export default function BasicCard(props: CardInfo) {
         </Typography>
         <p></p>
         <Typography variant="h4" component="div">
-          <b>{props.value}</b>
+          <b>{props.value === undefined ? <p className='none-text'>정보가 없습니다</p> : props.value}</b>
         </Typography>
       </CardContent>
     </Card>

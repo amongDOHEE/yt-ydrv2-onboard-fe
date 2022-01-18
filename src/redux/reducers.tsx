@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import { searchTitle } from "./search";
+import { searchId, searchTitle } from "./search";
 
 const rootReducer = combineReducers({
   input: searchTitle,
+  channelId: searchId
 });
 
 export default rootReducer;

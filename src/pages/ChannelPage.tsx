@@ -22,9 +22,11 @@ const ChannelPage: React.FC = (): JSX.Element => {
 
   //useInput -> find correct search result
   const [searchList, setSearchList] = useState<ChannelList[]>([]);
+  const [searchId, setSearchId] = useState<string>("");
 
   //use redux
   const searchInput = useSelector((store: RootState) => store.input);
+  const targetId = useSelector((store: RootState) => store.channelId);
 
   const Card_1: CardInfo[] = [
     { name: "구독자 조회 비중", value: channelSummary?.subs_in_views },
@@ -39,6 +41,10 @@ const ChannelPage: React.FC = (): JSX.Element => {
   ];
 
   useEffect(() => {
+    setSearchId(targetId['channelId']);
+  }, [targetId]);
+
+  useEffect(() => {
     if (searchInput !== null) {
       let select: any = channelList.map((list) => {
         if (list.title?.includes(searchInput)) {
@@ -47,7 +53,6 @@ const ChannelPage: React.FC = (): JSX.Element => {
       });
       select = select.filter((list: any) => list !== undefined);
       setSearchList(select);
-      console.log(select)
     }
   }, [searchInput]);
 
@@ -57,9 +62,22 @@ const ChannelPage: React.FC = (): JSX.Element => {
     if (accessToken !== null) {
       (async () => {
         setChannelList(await getChannel_List(accessToken));
-        setChannelInfo(await getChannel_Info(accessToken, "UCUj6rrhMTR9pipbAWBAMvUQ"));
-        setChannelSummary(await getChannel_Summary(accessToken, "UCUj6rrhMTR9pipbAWBAMvUQ"));
-        setChannelDaily(await getChannel_Daily(accessToken, "UCUj6rrhMTR9pipbAWBAMvUQ"));
+        setChannelInfo(await getChannel_Info(accessToken, searchId));
+        setChannelSummary(await getChannel_Summary(accessToken, searchId));
+        setChannelDaily(await getChannel_Daily(accessToken, searchId));
+      })();
+    }
+
+    setSearchList([]);
+
+  }, [searchId]);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('auth_token');
+
+    if (accessToken !== null) {
+      (async () => {
+        setChannelList(await getChannel_List(accessToken));
       })();
     }
   }, []);
@@ -71,12 +89,12 @@ const ChannelPage: React.FC = (): JSX.Element => {
       {
         searchList.length !== 0 ?
           searchList.map((list) => {
-            return <SearchList title={list.title} id={list.id} />
+            return <SearchList title={list.title} id={list.id} key={list.id} />
           })
           : <div style={{ display: "none" }}></div>
       }
       {
-        searchList.length !== 0 ? <div>
+        targetId['channelId'] !== '' ? <div>
           <Grid container spacing={1}>
             <MainCard
               title={channelInfo.title}
