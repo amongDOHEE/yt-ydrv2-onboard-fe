@@ -2,6 +2,16 @@
 Auth project, front-end onboarding
 SANDBOX NETWORK, Content Tech team SW Developer (FE) Practice repository.
 
+## Overview
+
+This is about result pages.
+
+![스크린샷 2022-01-18 오후 5.01.09](/Users/doheekim/Desktop/스크린샷 2022-01-18 오후 5.01.09.png)
+
+![스크린샷 2022-01-18 오후 5.01.32](/Users/doheekim/Desktop/스크린샷 2022-01-18 오후 5.01.32.png)
+
+![스크린샷 2022-01-18 오후 5.01.43](/Users/doheekim/Desktop/스크린샷 2022-01-18 오후 5.01.43.png)
+
 ## Getting Started
 
 <b>Use react-cil, TypeScript.</b>
