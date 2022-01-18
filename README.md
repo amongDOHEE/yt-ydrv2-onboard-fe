@@ -5,12 +5,10 @@ SANDBOX NETWORK, Content Tech team SW Developer (FE) Practice repository.
 ## Overview
 
 This is about result pages.
+<img width="1440" alt="스크린샷 2022-01-18 오후 5 01 09" src="https://user-images.githubusercontent.com/97079582/149898412-cdf05b79-7e46-4297-81a1-5860327db624.png">
+<img width="1440" alt="스크린샷 2022-01-18 오후 5 01 32" src="https://user-images.githubusercontent.com/97079582/149898417-99b3b255-123a-4560-9edc-a31424945343.png">
+<img width="1440" alt="스크린샷 2022-01-18 오후 5 01 43" src="https://user-images.githubusercontent.com/97079582/149898446-423e2a0d-ae6d-4a2f-ba9e-f03e999469b8.png">
 
-![스크린샷 2022-01-18 오후 5.01.09](/Users/doheekim/Desktop/스크린샷 2022-01-18 오후 5.01.09.png)
-
-![스크린샷 2022-01-18 오후 5.01.32](/Users/doheekim/Desktop/스크린샷 2022-01-18 오후 5.01.32.png)
-
-![스크린샷 2022-01-18 오후 5.01.43](/Users/doheekim/Desktop/스크린샷 2022-01-18 오후 5.01.43.png)
 
 ## Getting Started
 
