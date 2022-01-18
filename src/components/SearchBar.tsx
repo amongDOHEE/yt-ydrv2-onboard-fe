@@ -4,11 +4,17 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
-const Search: React.FC = () => {
-  const [name, setName] = React.useState('');
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { BsSearch } from "react-icons/bs";
+import { Button } from '@mui/material';
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
+const Search: React.FC = () => {
+  const [searchTitle, setTitle] = React.useState('');
+  const dispatch = useDispatch();
+
+  const enterInput = () => {
+    dispatch({ type: 'ENTER', userInputValue: searchTitle });
   };
 
   return (
@@ -23,12 +29,16 @@ const Search: React.FC = () => {
         <InputLabel htmlFor="component-outlined">Search</InputLabel>
         <OutlinedInput
           id="component-outlined"
-          value={name}
-          onChange={handleChange}
+          value={searchTitle}
+          onChange={(e) => setTitle(e.target.value)}
+          onKeyPress={(e) => { if (e.key === 'Enter') { e.preventDefault(); enterInput(); } }}
           label="Search"
-          style={{ width: "40vw" }}
+          style={{ width: "35vw" }}
         />
       </FormControl>
+      <Button id="search-button" onClick={enterInput} style={{ height: '55px', backgroundColor: 'gray' }}>
+        <BsSearch fontSize={25} color='white' />
+      </Button>
     </Box>
   );
 };

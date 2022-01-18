@@ -45,18 +45,20 @@
   background-color: #E6E6E6;
   padding: 10px 0px 10px 0px;
   text-align: left;
-  margin: 0 auto;
-  margin-bottom: 2px;
-  width: 40vw;
+  margin: 1px 0px 0px 29vw;
+  width: 35vw;
   min-width: 100px;
   min-height: 10px;
-  height: 5vh;
+  height: 20px;
   border: none;
   border-radius: 1px;
+  font-size: 14px;
+
 }
 
 .card-id-text {
   margin-left: 10px;
+  font-size: 10px;
   color: #848484;
   display: inline;
 }
@@ -68,4 +70,8 @@
   width: 80vh;
   margin: 20px;
   height: 30vh;
+}
+
+.search-button {
+  height: 100vh;
 }
