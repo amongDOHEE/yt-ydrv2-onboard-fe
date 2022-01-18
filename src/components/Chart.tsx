@@ -111,8 +111,6 @@ const Chart = (props: any) => {
   return (
     <ReactECharts
       option={option}
-      notMerge={true}
-      lazyUpdate={true}
     />
   );
 };

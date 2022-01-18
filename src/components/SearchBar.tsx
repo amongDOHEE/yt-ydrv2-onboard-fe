@@ -3,11 +3,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
-
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BsSearch } from "react-icons/bs";
-import { Button } from '@mui/material';
 
 const Search: React.FC = () => {
   const [searchTitle, setTitle] = React.useState('');

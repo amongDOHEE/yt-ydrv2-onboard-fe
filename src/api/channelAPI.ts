@@ -6,6 +6,7 @@ const channel_info_URL: string = process.env.REACT_APP_CHANNEL_INFO + "";
 const channel_summary_URL: string = process.env.REACT_APP_CHANNEL_SUMMARY + "";
 const chennel_basic_URL: string = process.env.REACT_APP_CHANNEL_BASIC + "";
 
+/*call api -> set type & format -> return data*/
 export const getChannel_List = async (accessToken: string): Promise<ChannelList[]> => {
   const empty: ChannelList[] = [];
 

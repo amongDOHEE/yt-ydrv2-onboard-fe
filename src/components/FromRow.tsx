@@ -1,6 +1,6 @@
-import { Box, Card, Grid } from "@mui/material";
 import React from "react";
 import InfoCard from "./InfoCard";
+import { Box, Grid } from "@mui/material";
 
 interface Rows {
   firstRow: CardInfo[]
