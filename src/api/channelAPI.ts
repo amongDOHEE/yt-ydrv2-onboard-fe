@@ -38,7 +38,7 @@ export const getChannel_Info = async (accessToken: string, channelId: string): P
   try {
     const response = await axios.get(channel_info_URL + channelId, {
       headers: {
-        Authorization: accessToken
+        Authorization: "datalake"
       }
     });
     if (response && response.status === 200) {
@@ -66,10 +66,11 @@ export const getChannel_Summary = async (accessToken: string, channelId: string)
   try {
     const response = await axios.get(`${channel_summary_URL}?cid=${channelId}`, {
       headers: {
-        Authorization: accessToken,
+        Authorization: "datalake",
       }
     });
     if (response && response.status === 200) {
+      console.log(`${channel_summary_URL}?cid=${channelId}`);
       const channelSummary = response.data;
       const result: ChannelSummary = {
         subs_in_views: channelSummary.subs_in_views.toFixed(2),
@@ -103,7 +104,7 @@ export const getChannel_Daily = async (accessToken: string, channelId: string): 
   try {
     const response = await axios.get(`${chennel_basic_URL}${channelId}/daily?start_date=2021-09-01&end_date=2021-12-01`, {
       headers: {
-        Authorization: accessToken,
+        Authorization: "datalake",
       }
     });
     if (response && response.status === 200) {
