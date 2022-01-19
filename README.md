@@ -40,6 +40,16 @@ This is the URL used to get specific channel information (title, number of subsc
 
 REACT_APP_CHANNEL_SUMMARY:
 This is a URL where you can get the channel trend information for a specific period.
+
+REACT_APP_VIDEO_LIST:
+This is the URL used to load the list of video.need keyword.
+
+REACT_APP_VIDEO_SUMMARY:
+This is a URL where you can get the video information for a specific period.
+
+REACT_APP_VIDEO_INFO:
+This is the URL used to get specific video information (title, number of subscribers, etc.)
+
 ```
 
 ### Prerequisites
