@@ -16,7 +16,7 @@ import SearchList from "../components/SearchList";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/reducers";
 
-const ChannelPage: React.FC = (): JSX.Element => {
+const VideoPage: React.FC = (): JSX.Element => {
   //about channel info hook
   const [channelList, setChannelList] = useState<ChannelList[]>([]);
   const [channelInfo, setChannelInfo] = useState<ChannelInfo>({ title: "" });
@@ -115,4 +115,4 @@ const ChannelPage: React.FC = (): JSX.Element => {
   );
 };
 
-export default ChannelPage;
+export default VideoPage;

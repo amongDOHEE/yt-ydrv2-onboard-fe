@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ChannelDaily, ChannelInfo, ChannelList, ChannelSummary } from "../interface/interface";
+import { ChannelDaily, ChannelInfo, ChannelList, ChannelSummary } from "../interface/channel_Interface";
 
 const channel_search_URL: string = process.env.REACT_APP_CHANNEL_SEARCH + "";
 const channel_info_URL: string = process.env.REACT_APP_CHANNEL_INFO + "";
@@ -70,7 +70,6 @@ export const getChannel_Summary = async (accessToken: string, channelId: string)
       }
     });
     if (response && response.status === 200) {
-      console.log(`${channel_summary_URL}?cid=${channelId}`);
       const channelSummary = response.data;
       const result: ChannelSummary = {
         subs_in_views: channelSummary.subs_in_views.toFixed(2),
@@ -88,7 +87,6 @@ export const getChannel_Summary = async (accessToken: string, channelId: string)
           nagative: channelSummary.comment.negative.toFixed(2)
         }
       }
-      console.log(result)
       return result;
     }
   }
