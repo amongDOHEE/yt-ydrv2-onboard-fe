@@ -14,7 +14,8 @@ This is about result pages.<br/>
 <br/>
 [Video Page]<br/>
 <img width="1427" alt="스크린샷 2022-01-19 오후 4 31 03" src="https://user-images.githubusercontent.com/97079582/150086150-c842b5c1-fddd-4195-8247-3830014582b7.png">
-<img width="1430" alt="스크린샷 2022-01-19 오후 4 30 42" src="https://user-images.githubusercontent.com/97079582/150086158-0d37475f-a699-491d-a0d1-5b538a2a296b.png">
+<img width="1425" alt="스크린샷 2022-01-19 오후 6 03 34" src="https://user-images.githubusercontent.com/97079582/150098529-ccb72ee3-2638-4c18-9448-3d234a76789b.png">
+
 
 ## Getting Started
 
