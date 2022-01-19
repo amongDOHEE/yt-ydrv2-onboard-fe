@@ -32,7 +32,7 @@ const VideoPage: React.FC = (): JSX.Element => {
   const Card_1: CardInfo[] = [
     { name: "조회률", value: videoSummary?.avg_per_viewed },
     { name: "영상 평균 수명", value: videoSummary?.video_life_duration },
-    { name: "업로드 1주 평균 조회수", value: videoSummary?.avg_view_per_viewer },
+    { name: "업로드 1주 평균 조회수", value: videoSummary?.avg_per_viewed },
   ];
 
   const Card_2: CardInfo[] = [

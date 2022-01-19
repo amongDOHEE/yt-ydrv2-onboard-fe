@@ -64,17 +64,19 @@ export const getVideo_Summary = async (videoId: string): Promise<VideoSummary> =
   const empty: VideoSummary = {};
 
   try {
-    const response = await axios.get(`${video_summary_URL}?video_id=${videoId}`, {
+    const response = await axios.get(`${video_summary_URL}${videoId}`, {
       headers: {
         Authorization: "datalake",
       }
     });
     if (response && response.status === 200) {
       const videoSummary = response.data;
+      const commentHours: number[] = videoSummary.comment_hours;
+
       const result: VideoSummary = {
         avg_per_viewed: videoSummary.avg_per_viewed.toFixed(2),
         video_life_duration: videoSummary.video_life_duration.toFixed(2),
-        max_comment_hours: Math.max(videoSummary.max_comment_hours),
+        max_comment_hours: Math.max(...commentHours),
         thumbnail_click_rate: videoSummary.thumbnail_click_rate.toFixed(2),
         comment: {
           positive: videoSummary.comment.positive.toFixed(2),
