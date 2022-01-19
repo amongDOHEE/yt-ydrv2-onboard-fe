@@ -5,13 +5,23 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useDispatch } from 'react-redux';
 
-const Search: React.FC = () => {
+const Search = (props?: any) => {
   const [searchTitle, setTitle] = React.useState('');
   const dispatch = useDispatch();
 
   const enterInput = () => {
     dispatch({ type: 'ENTER', userInputValue: searchTitle });
   };
+
+  const directSearch = (e: any) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (props.enterFunc !== undefined) {
+        props.enterFunc();
+      }
+      enterInput();
+    }
+  }
 
   return (
     <Box
@@ -27,7 +37,7 @@ const Search: React.FC = () => {
           id="component-outlined"
           value={searchTitle}
           onChange={(e) => setTitle(e.target.value)}
-          onKeyPress={(e) => { if (e.key === 'Enter') { e.preventDefault(); enterInput(); } }}
+          onKeyPress={(e) => { directSearch(e) }}
           label="Search"
           style={{ width: "35vw" }}
         />

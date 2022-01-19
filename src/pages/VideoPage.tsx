@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 //components
 import { CardInfo } from "../components/FromRow";
 import NavigationBar from "../components/NavigationBar";
-import Search from "../components/SearchBar";
 import DataCard from "../components/FromRow";
 import SearchList from "../components/SearchList";
 
@@ -14,6 +13,7 @@ import { RootState } from "../redux/reducers";
 import { VideoInfo, VideoList, VideoSummary } from "../interface/video_Interface";
 import { getVideo_Info, getVideo_List, getVideo_Summary } from "../api/videoAPI";
 import VideoInfoCard from "../components/VideoInfoCard";
+import PopupSearchBar from "../components/PopupSearchBar";
 
 const VideoPage: React.FC = (): JSX.Element => {
   //about channel info hook
@@ -71,14 +71,7 @@ const VideoPage: React.FC = (): JSX.Element => {
   return (
     <div className="channelPage">
       <NavigationBar />
-      <Search />
-      {
-        searchList.length !== 0 ?
-          searchList.map((list) => {
-            return <SearchList title={list.title} id={list.video_id} key={list.video_id} />
-          })
-          : <div style={{ display: "none" }}></div>
-      }
+      <PopupSearchBar videoList={searchList} />
       {
         targetId['channelId'] !== '' ? <div>
           <Grid container spacing={1}>
