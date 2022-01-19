@@ -23,7 +23,6 @@ export const getVideo_List = async (keyword: string): Promise<VideoList[]> => {
           channel_title: videoInfo.channel_title
         }
       });
-      console.log(channelId)
       return channelId;
     }
   }
@@ -52,7 +51,6 @@ export const getVideo_Info = async (channelId: string): Promise<VideoInfo> => {
         published_at: videoInfo.published_at,
         thumbnail: videoInfo.thumbnail
       };
-      console.log(result)
       return result;
     }
   }
@@ -83,7 +81,6 @@ export const getVideo_Summary = async (videoId: string): Promise<VideoSummary> =
           nagative: videoSummary.comment.negative.toFixed(2)
         }
       }
-      console.log(result)
       return result;
     }
   }

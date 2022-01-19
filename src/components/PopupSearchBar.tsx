@@ -7,6 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
+import VideoListTable from './VideoListTable';
 
 const PopupSearchBar = (props: any) => {
   const [open, setOpen] = React.useState(false);
@@ -43,21 +44,25 @@ const PopupSearchBar = (props: any) => {
       >
         <DialogTitle id="scroll-dialog-title">Videos</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
-          <DialogContentText><b>검색된 비디오</b></DialogContentText>
+          <DialogContentText><b>검색된 비디오</b></DialogContentText><br />
           <DialogContentText
             id="scroll-dialog-description"
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            {props.videoList
-              .map((list: any) => {
+            <VideoListTable
+              videoList={props.videolist}
+            />
+            {/*props.videoList !== undefined ?
+              props.videoList.map((list: any) => {
                 return <VideoList
                   title={list.title}
                   id={list.video_id}
                   key={list.video_id}
                 />
-              })
-            }
+              }) :
+              <DialogContentText>검색된 비디오가 없습니다.</DialogContentText>
+            */}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

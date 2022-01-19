@@ -71,7 +71,7 @@ const VideoPage: React.FC = (): JSX.Element => {
   return (
     <div className="channelPage">
       <NavigationBar />
-      <PopupSearchBar videoList={searchList} />
+      <PopupSearchBar videolist={searchList} />
       {
         targetId['channelId'] !== '' ? <div>
           <Grid container spacing={1}>
