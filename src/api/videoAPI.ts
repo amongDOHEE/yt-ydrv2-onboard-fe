@@ -1,28 +1,29 @@
 import axios from "axios";
-import { VideoInfo, VideoSearch, VideoSummary } from "../interface/video_Interface";
+import { VideoInfo, VideoList, VideoSummary } from "../interface/video_Interface";
 
 const video_search_URL: string = process.env.REACT_APP_VIDEO_LIST + "";
 const video_info_URL: string = process.env.REACT_APP_VIDEO_INFO + "";
 const video_summary_URL: string = process.env.REACT_APP_VIDEO_SUMMARY + "";
 
 /*call api -> set type & format -> return data*/
-export const getVideo_List = async (): Promise<VideoSearch[]> => {
-  const empty: VideoSearch[] = [];
+export const getVideo_List = async (keyword: string): Promise<VideoList[]> => {
+  const empty: VideoList[] = [];
 
   try {
-    const response = await axios.get(video_search_URL, {
+    const response = await axios.get(video_search_URL + keyword, {
       headers: {
         Authorization: "datalake"
       }
     });
     if (response && response.status === 200) {
-      const channelId: VideoSearch[] = response.data.map((videoInfo: any) => {
+      const channelId: VideoList[] = response.data.map((videoInfo: any) => {
         return {
           title: videoInfo.title,
           video_id: videoInfo.video_id,
           channel_title: videoInfo.channel_title
         }
       });
+      console.log(channelId)
       return channelId;
     }
   }
@@ -51,7 +52,7 @@ export const getVideo_Info = async (channelId: string): Promise<VideoInfo> => {
         published_at: videoInfo.published_at,
         thumbnail: videoInfo.thumbnail
       };
-
+      console.log(result)
       return result;
     }
   }
@@ -61,27 +62,28 @@ export const getVideo_Info = async (channelId: string): Promise<VideoInfo> => {
   return empty;
 };
 
-export const getVideo_Summary = async (channelId: string): Promise<VideoSummary> => {
+export const getVideo_Summary = async (videoId: string): Promise<VideoSummary> => {
   const empty: VideoSummary = {};
 
   try {
-    const response = await axios.get(`${video_summary_URL}?cid=${channelId}`, {
+    const response = await axios.get(`${video_summary_URL}?video_id=${videoId}`, {
       headers: {
         Authorization: "datalake",
       }
     });
     if (response && response.status === 200) {
-      const channelSummary = response.data;
+      const videoSummary = response.data;
       const result: VideoSummary = {
-        avg_per_viewed: channelSummary.avg_per_viewed.toFixed(2),
-        video_life_duration: channelSummary.video_life_duration.toFixed(2),
-        max_comment_hours: Math.max(channelSummary.max_comment_hours),
-        thumbnail_click_rate: channelSummary.thumbnail_click_rate.toFixed(2),
+        avg_per_viewed: videoSummary.avg_per_viewed.toFixed(2),
+        video_life_duration: videoSummary.video_life_duration.toFixed(2),
+        max_comment_hours: Math.max(videoSummary.max_comment_hours),
+        thumbnail_click_rate: videoSummary.thumbnail_click_rate.toFixed(2),
         comment: {
-          positive: channelSummary.comment.positive.toFixed(2),
-          nagative: channelSummary.comment.negative.toFixed(2)
+          positive: videoSummary.comment.positive.toFixed(2),
+          nagative: videoSummary.comment.negative.toFixed(2)
         }
       }
+      console.log(result)
       return result;
     }
   }

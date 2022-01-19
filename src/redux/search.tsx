@@ -26,3 +26,12 @@ export const searchId = (state = init_channelId, action: { type: any; channelId:
       return state;
   }
 }
+
+export const searchVideo = (state = init_input, action: { type: any; keyword: string }) => {
+  switch (action.type) {
+    case 'ENTER':
+      return action.keyword
+    default:
+      return state;
+  }
+}

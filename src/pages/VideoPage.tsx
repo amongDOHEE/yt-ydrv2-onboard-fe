@@ -1,30 +1,27 @@
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { getChannel_Daily, getChannel_Info, getChannel_List, getChannel_Summary } from "../api/channelAPI";
-import { ChannelDaily, ChannelInfo, ChannelList, ChannelSummary } from "../interface/channel_Interface";
 
 //components
 import { CardInfo } from "../components/FromRow";
-import MainCard from "../components/MainCard";
 import NavigationBar from "../components/NavigationBar";
 import Search from "../components/SearchBar";
 import DataCard from "../components/FromRow";
-import Chart from "../components/Chart";
 import SearchList from "../components/SearchList";
 
 //redux
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/reducers";
+import { VideoInfo, VideoList, VideoSummary } from "../interface/video_Interface";
+import { getVideo_Info, getVideo_List, getVideo_Summary } from "../api/videoAPI";
+import VideoInfoCard from "../components/VideoInfoCard";
 
 const VideoPage: React.FC = (): JSX.Element => {
   //about channel info hook
-  const [channelList, setChannelList] = useState<ChannelList[]>([]);
-  const [channelInfo, setChannelInfo] = useState<ChannelInfo>({ title: "" });
-  const [channelSummary, setChannelSummary] = useState<ChannelSummary>();
-  const [channelDaily, setChannelDaily] = useState<ChannelDaily>();
+  const [videoInfo, setVideoInfo] = useState<VideoInfo>({ title: "" });
+  const [videoSummary, setVideoSummary] = useState<VideoSummary>();
 
   //useInput -> find correct search result
-  const [searchList, setSearchList] = useState<ChannelList[]>([]);
+  const [searchList, setSearchList] = useState<VideoList[]>([]);
   const [searchId, setSearchId] = useState<string>("");
 
   //use redux
@@ -33,15 +30,15 @@ const VideoPage: React.FC = (): JSX.Element => {
 
   //card info
   const Card_1: CardInfo[] = [
-    { name: "구독자 조회 비중", value: channelSummary?.subs_in_views },
-    { name: "영상 평균 수명", value: channelSummary?.video_life_duration },
-    { name: "업로드 1주 평균 조회수", value: channelSummary?.avg_view_per_viewer },
+    { name: "조회률", value: videoSummary?.avg_per_viewed },
+    { name: "영상 평균 수명", value: videoSummary?.video_life_duration },
+    { name: "업로드 1주 평균 조회수", value: videoSummary?.avg_view_per_viewer },
   ];
 
   const Card_2: CardInfo[] = [
-    { name: "조회수 1회당 수익", value: channelSummary?.rpm },
-    { name: "썸네일 클릭률", value: channelSummary?.thumbnail_click_rate },
-    { name: "댓글 긍정 반응 비율", value: channelSummary?.comment?.positive },
+    { name: "댓글이 많이 달린 시간", value: videoSummary?.max_comment_hours },
+    { name: "댓글 긍정 반응 비율", value: videoSummary?.comment?.positive },
+    { name: "썸네일 클릭률", value: videoSummary?.thumbnail_click_rate },
   ];
 
   //search channel 
@@ -52,13 +49,9 @@ const VideoPage: React.FC = (): JSX.Element => {
   //set search result
   useEffect(() => {
     if (searchInput !== null) {
-      let select: any = channelList.map((list) => {
-        if (list.title?.includes(searchInput)) {
-          return list;
-        }
-      });
-      select = select.filter((list: any) => list !== undefined);
-      setSearchList(select);
+      (async () => {
+        setSearchList(await getVideo_List(searchInput));
+      })();
     }
   }, [searchInput]);
 
@@ -68,10 +61,8 @@ const VideoPage: React.FC = (): JSX.Element => {
 
     if (accessToken !== null) {
       (async () => {
-        setChannelList(await getChannel_List(accessToken));
-        setChannelInfo(await getChannel_Info(accessToken, searchId));
-        setChannelSummary(await getChannel_Summary(accessToken, searchId));
-        setChannelDaily(await getChannel_Daily(accessToken, searchId));
+        setVideoInfo(await getVideo_Info(searchId));
+        setVideoSummary(await getVideo_Summary(searchId));
       })();
     }
     setSearchList([]);
@@ -84,29 +75,25 @@ const VideoPage: React.FC = (): JSX.Element => {
       {
         searchList.length !== 0 ?
           searchList.map((list) => {
-            return <SearchList title={list.title} id={list.id} key={list.id} />
+            return <SearchList title={list.title} id={list.video_id} key={list.video_id} />
           })
           : <div style={{ display: "none" }}></div>
       }
       {
         targetId['channelId'] !== '' ? <div>
           <Grid container spacing={1}>
-            <MainCard
-              title={channelInfo.title}
-              total_videos={channelInfo.total_videos}
-              total_views={channelInfo.total_views}
-              published_at={channelInfo.published_at}
-              thumbnail={channelInfo.thumbnail}
+            <VideoInfoCard
+              title={videoInfo.title}
+              video_id={videoInfo.video_id}
+              views={videoInfo.views}
+              paid_overlay={videoInfo.paid_overlay}
+              published_at={videoInfo.published_at}
+              thumbnail={videoInfo.thumbnail}
             />
           </Grid>
           <DataCard
             firstRow={Card_1}
             secondRow={Card_2}
-          />
-          <Chart
-            view={channelDaily?.total_views}
-            subscriber={channelDaily?.total_subscribers}
-            est={channelDaily?.est_partner_rev}
           />
         </div>
           : <div></div>

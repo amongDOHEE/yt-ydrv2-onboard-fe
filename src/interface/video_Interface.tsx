@@ -20,7 +20,7 @@ export interface VideoSummary {
   thumbnail_click_rate?: number
 }
 
-export interface VideoSearch {
+export interface VideoList {
   title?: string
   video_id?: string
   channel_title: string
