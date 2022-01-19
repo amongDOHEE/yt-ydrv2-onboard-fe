@@ -32,9 +32,10 @@ const PopupSearchBar = (props: any) => {
     }
   }, [open]);
 
+
   return (
     <div>
-      <SearchBar enterFunc={handleClickOpen('paper')} />
+      <SearchBar type={"video"} enterFunc={handleClickOpen('paper')} />
       <Dialog
         open={open}
         onClose={handleClose}
@@ -52,17 +53,8 @@ const PopupSearchBar = (props: any) => {
           >
             <VideoListTable
               videoList={props.videolist}
+              close={handleClose}
             />
-            {/*props.videoList !== undefined ?
-              props.videoList.map((list: any) => {
-                return <VideoList
-                  title={list.title}
-                  id={list.video_id}
-                  key={list.video_id}
-                />
-              }) :
-              <DialogContentText>검색된 비디오가 없습니다.</DialogContentText>
-            */}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

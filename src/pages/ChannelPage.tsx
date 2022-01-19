@@ -80,7 +80,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
   return (
     <div className="channelPage">
       <NavigationBar />
-      <Search />
+      <Search type={"channel"} />
       {
         searchList.length !== 0 ?
           searchList.map((list) => {

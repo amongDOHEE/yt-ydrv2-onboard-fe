@@ -32,7 +32,7 @@ const Search = (props?: any) => {
       style={{ marginTop: "2.5vh" }}
     >
       <FormControl>
-        <InputLabel htmlFor="component-outlined">Search</InputLabel>
+        <InputLabel htmlFor="component-outlined">Search {props.type}</InputLabel>
         <OutlinedInput
           id="component-outlined"
           value={searchTitle}

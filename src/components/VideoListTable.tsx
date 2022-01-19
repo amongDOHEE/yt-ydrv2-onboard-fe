@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { VideoList } from '../interface/video_Interface';
+import { useDispatch } from 'react-redux';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -32,8 +33,16 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 export const VideoListTable = (props: any) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const clickVideo = (e: any) => {
+    dispatch({ type: 'SELECT', channelId: e.currentTarget.innerText });
+    props.close();
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -51,7 +60,7 @@ export const VideoListTable = (props: any) => {
               <StyledTableCell component="th" scope="row">
                 {row.title}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.video_id}</StyledTableCell>
+              <StyledTableCell align="right" onClick={(e) => clickVideo(e)}>{row.video_id}</StyledTableCell>
               <StyledTableCell align="right">{row.channel_title}</StyledTableCell>
             </StyledTableRow>
           ))}

@@ -19,6 +19,7 @@ const NavigationBar: React.FC = () => {
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     navigate(`/${event.currentTarget.innerText.toLowerCase()}`, { replace: true });
+    window.location.reload();
   };
 
   return (
