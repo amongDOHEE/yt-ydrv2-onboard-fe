@@ -57,7 +57,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
           return list;
         }
       });
-      select = select.filter((list: any) => list !== undefined);
+      select = select?.filter((list: any) => list !== undefined);
       setSearchList(select);
     }
   }, [searchInput]);

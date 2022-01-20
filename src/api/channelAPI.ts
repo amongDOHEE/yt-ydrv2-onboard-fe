@@ -61,7 +61,22 @@ export const getChannel_Info = async (accessToken: string, channelId: string): P
 };
 
 export const getChannel_Summary = async (accessToken: string, channelId: string): Promise<ChannelSummary> => {
-  const empty: ChannelSummary = {};
+  const empty: ChannelSummary = {
+    subs_in_views: 0,
+    video_life_duration: 0,
+    avg_view_per_viewer: 0,
+    rpm: 0,
+    traffic: {
+      name: [],
+      views: 0,
+      rate: 0,
+    },
+    thumbnail_click_rate: 0,
+    comment: {
+      positive: 0,
+      nagative: 0,
+    }
+  };
 
   try {
     const response = await axios.get(`${channel_summary_URL}?cid=${channelId}`, {
@@ -97,7 +112,11 @@ export const getChannel_Summary = async (accessToken: string, channelId: string)
 }
 
 export const getChannel_Daily = async (accessToken: string, channelId: string): Promise<ChannelDaily> => {
-  const empty: ChannelDaily = { total_views: [0] };
+  const empty: ChannelDaily = {
+    total_views: [],
+    total_subscribers: [],
+    est_partner_rev: [],
+  };
 
   try {
     const response = await axios.get(`${chennel_basic_URL}${channelId}/daily?start_date=2021-09-01&end_date=2021-12-01`, {
