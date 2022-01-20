@@ -10,6 +10,12 @@
   height: 85px;
 }
 
+.logo-image-channel {
+  margin: 0 auto;
+  width: 120px;
+  height: 30px;
+}
+
 .login-text {
   margin: 0 auto;
   margin-top: 30vh;
@@ -17,10 +23,60 @@
 }
 
 .logout-button {
-  width: 200px;
-  height: 10vh;
+  width: 100px;
+  height: 40px;
   font-size: 14px;
+  font-weight: 500;
   color: white;
+  border: none;
   border-radius: 10px;
   box-shadow: none;
+}
+
+.card-info {
+  margin: 0 auto;
+  min-width: 275px;
+  min-height: 150px;
+  margin: 20px;
+  height: 23vh;
+}
+
+.card-search {
+  background-color: #E6E6E6;
+  padding: 10px 0px 10px 0px;
+  text-align: left;
+  margin: 1px 0px 0px 32.5vw;
+  width: 35vw;
+  min-width: 100px;
+  min-height: 10px;
+  height: 20px;
+  border: none;
+  border-radius: 1px;
+  font-size: 14px;
+
+}
+
+.card-id-text {
+  margin-left: 10px;
+  font-size: 10px;
+  color: #848484;
+  display: inline;
+}
+
+.card-main {
+  margin: 0 auto;
+  min-width: 300;
+  min-height: 150;
+  width: 80vh;
+  margin: 20px;
+  height: 30vh;
+}
+
+.search-button {
+  height: 100vh;
+}
+
+.none-text {
+  color: gray;
+  font-size: 14px
 }

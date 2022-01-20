@@ -1,6 +1,6 @@
 import GoogleLogin from 'react-google-login';
 import { useNavigate } from 'react-router';
-import { onGoogleLogin } from '../api/authLogic';
+import { onGoogleLogin } from '../api/auth';
 
 const clientId = process.env.REACT_APP_KEY;
 
@@ -10,7 +10,7 @@ const LoginButton: React.FC = () : JSX.Element => {
   const onSuccess = async(response : any) => {
     const { profileObj : { email }, accessToken } = response;
     if(await onGoogleLogin (email, accessToken)) {
-      navigate("/login", { replace: true });
+      navigate("/channel", { replace: true });
     }
     else {
       console.error("login fail: wrong token.")
