@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "export PORT=3000 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && docker build -t yt-api:0.1 .",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "gts lint",
