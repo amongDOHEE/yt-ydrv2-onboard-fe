@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-const SearchList = (props: any) => {
+const VideoList = (props: any) => {
   const dispatch = useDispatch();
 
   const clickList = (event: React.MouseEvent<HTMLElement>) => {
@@ -10,11 +10,11 @@ const SearchList = (props: any) => {
   };
 
   return (
-    <div className="card-search" onClick={clickList}>
+    <div className="card-video-search" onClick={clickList}>
       <b style={{marginLeft: '15px'}}>{props.title}</b>
       <p className="card-id-text">/{props.id}</p>
     </div>
   );
 };
 
-export default SearchList;
+export default VideoList;

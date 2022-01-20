@@ -8,34 +8,44 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutButton from './LogoutButton';
-import { useNavigate } from 'react-router';
+import {useNavigate} from 'react-router';
 
 const pages = ['Channel', 'Video'];
 
 const NavigationBar: React.FC = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    localStorage.clear();
-    navigate(`/${event.currentTarget.innerText.toLowerCase()}`, { replace: true });
+    navigate(`/${event.currentTarget.innerText.toLowerCase()}`, {
+      replace: true,
+    });
+    window.location.reload();
   };
 
   return (
-    <AppBar position="sticky" color='default'>
+    <AppBar position="sticky" color="default">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
           >
-            <img className="logo-image-channel" alt="sandbox-logo" src="https://platum.kr/wp-content/uploads/2018/09/aaa.png" />
+            <img
+              className="logo-image-channel"
+              alt="sandbox-logo"
+              src="https://platum.kr/wp-content/uploads/2018/09/aaa.png"
+            />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -51,10 +61,10 @@ const NavigationBar: React.FC = () => {
               open={Boolean(anchorElNav)}
               onClose={handleOpenNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: {xs: 'block', md: 'none'},
               }}
             >
-              {pages.map((page) => (
+              {pages.map(page => (
                 <MenuItem key={page} onClick={handleOpenNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
@@ -65,26 +75,26 @@ const NavigationBar: React.FC = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+          <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+            {pages.map(page => (
               <Button
                 key={page}
                 onClick={handleOpenNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
+                sx={{my: 2, color: 'black', display: 'block'}}
               >
                 {page}
               </Button>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{flexGrow: 0}}>
             <LogoutButton />
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{mt: '45px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -98,8 +108,7 @@ const NavigationBar: React.FC = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleOpenNavMenu}
-            >
-            </Menu>
+            ></Menu>
           </Box>
         </Toolbar>
       </Container>

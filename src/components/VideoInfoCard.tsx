@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import {ChannelInfo} from '../interface';
+import {VideoInfo} from '../interface';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -12,7 +12,7 @@ const Img = styled('img')({
   maxHeight: '100%',
 });
 
-const MainCard = (props: ChannelInfo) => {
+const VideoInfoCard = (props: VideoInfo) => {
   return (
     <Paper
       sx={{
@@ -37,13 +37,16 @@ const MainCard = (props: ChannelInfo) => {
               <b>{props.title}</b>
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              <b>비디오</b> {props.total_videos}
+              <b>비디오 아이디</b> {props.video_id}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              <b>조회수</b> {props.total_views}
+              <b>비디오 조회수</b> {props.views}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              <b>시작일</b> {props.published_at}
+              <b>유료광고 여부</b> {props.paid_overlay === true ? 'O' : 'X'}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              <b>게시일</b> {props.published_at}
             </Typography>
           </Grid>
         </Grid>
@@ -52,4 +55,4 @@ const MainCard = (props: ChannelInfo) => {
   );
 };
 
-export default MainCard;
+export default VideoInfoCard;

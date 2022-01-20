@@ -4,10 +4,17 @@ SANDBOX NETWORK, Content Tech team SW Developer (FE) Practice repository.
 
 ## Overview
 
-This is about result pages.
+This is about result pages.<br/>
+
+[Channel Page]<br/>
 <img width="1440" alt="스크린샷 2022-01-18 오후 5 01 09" src="https://user-images.githubusercontent.com/97079582/149898412-cdf05b79-7e46-4297-81a1-5860327db624.png">
 <img width="1440" alt="스크린샷 2022-01-18 오후 5 01 32" src="https://user-images.githubusercontent.com/97079582/149898417-99b3b255-123a-4560-9edc-a31424945343.png">
 <img width="1440" alt="스크린샷 2022-01-18 오후 5 01 43" src="https://user-images.githubusercontent.com/97079582/149898446-423e2a0d-ae6d-4a2f-ba9e-f03e999469b8.png">
+
+<br/>
+[Video Page]<br/>
+<img width="1427" alt="스크린샷 2022-01-19 오후 4 31 03" src="https://user-images.githubusercontent.com/97079582/150086150-c842b5c1-fddd-4195-8247-3830014582b7.png">
+<img width="1425" alt="스크린샷 2022-01-19 오후 6 03 34" src="https://user-images.githubusercontent.com/97079582/150098529-ccb72ee3-2638-4c18-9448-3d234a76789b.png">
 
 
 ## Getting Started
@@ -40,6 +47,16 @@ This is the URL used to get specific channel information (title, number of subsc
 
 REACT_APP_CHANNEL_SUMMARY:
 This is a URL where you can get the channel trend information for a specific period.
+
+REACT_APP_VIDEO_LIST:
+This is the URL used to load the list of video.need keyword.
+
+REACT_APP_VIDEO_SUMMARY:
+This is a URL where you can get the video information for a specific period.
+
+REACT_APP_VIDEO_INFO:
+This is the URL used to get specific video information (title, number of subscribers, etc.)
+
 ```
 
 ### Prerequisites

@@ -1,40 +1,39 @@
 import axios from 'axios';
 
-const soicalURL : string = String(process.env.REACT_APP_SOCIAL);
-const verifyURL : string = String(process.env.REACT_APP_VERIFY);
+const soicalURL = String(process.env.REACT_APP_SOCIAL);
+const verifyURL = String(process.env.REACT_APP_VERIFY);
 
-export const onGoogleLogin = async (userEmail : string, accessToken : string) => {
+export const onGoogleLogin = async (userEmail: string, accessToken: string) => {
+  const localStorage = require('local-storage');
   try {
     //send access token to SandAuth
-    const response = await axios.post(soicalURL, { 
-      "email": userEmail, //user email
-      "access_token": accessToken //google access token
+    const response = await axios.post(soicalURL, {
+      email: userEmail, //user email
+      access_token: accessToken, //google access token
     });
-    if(response && response.status === 200) {
-      //set token in localstorage 
-      localStorage.setItem('auth_token', response.data.token);
+    if (response && response.status === 200) {
+      //set token in localstorage
+      localStorage.set('auth_token', response.data.token);
       return await CheckToken(response.data.token);
     }
-  }
-  catch(e){
+  } catch (e) {
     console.error(e);
     return undefined;
   }
 };
 
-export const CheckToken = async (accessToken : string) => {
+export const CheckToken = async (accessToken: string) => {
   try {
-    const response = await axios.get(verifyURL, { 
+    const response = await axios.get(verifyURL, {
       headers: {
-        Authorization: accessToken
-      }
+        Authorization: accessToken,
+      },
     });
-    if(response && response.status === 200) {
+    if (response && response.status === 200) {
       return response.data;
     }
-  }
-  catch(e){
+  } catch (e) {
     console.log(e);
     return undefined;
   }
-}
+};
