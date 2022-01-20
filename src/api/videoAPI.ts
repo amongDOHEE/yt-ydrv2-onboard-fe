@@ -61,7 +61,16 @@ export const getVideo_Info = async (channelId: string): Promise<VideoInfo> => {
 };
 
 export const getVideo_Summary = async (videoId: string): Promise<VideoSummary> => {
-  const empty: VideoSummary = {};
+  const empty: VideoSummary = {
+    avg_per_viewed: 0,
+    video_life_duration: 0,
+    max_comment_hours: 0,
+    comment: {
+      positive: 0,
+      nagative: 0,
+    },
+    thumbnail_click_rate: 0
+  };
 
   try {
     const response = await axios.get(`${video_summary_URL}${videoId}`, {

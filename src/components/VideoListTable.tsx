@@ -6,7 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { VideoList } from '../interface/video_Interface';
+import { VideoList } from '../interface';
 import { useDispatch } from 'react-redux';
 
 const StyledTableCell = withStyles((theme) => ({

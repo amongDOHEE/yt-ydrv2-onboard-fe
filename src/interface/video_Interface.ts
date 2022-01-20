@@ -9,19 +9,18 @@ export interface VideoInfo {
 }
 
 export interface VideoSummary {
-  avg_per_viewed?: number
-  video_life_duration?: number
-  avg_view_per_viewer?: number
-  max_comment_hours?: number
-  comment?: {
-    positive?: number
-    nagative?: number
+  avg_per_viewed: number
+  video_life_duration: number
+  max_comment_hours: number
+  comment: {
+    positive: number
+    nagative: number
   }
-  thumbnail_click_rate?: number
+  thumbnail_click_rate: number
 }
 
 export interface VideoList {
-  title?: string
-  video_id?: string
+  title: string
+  video_id: string
   channel_title: string
 } 

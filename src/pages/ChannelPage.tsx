@@ -18,8 +18,8 @@ import { RootState } from "../redux/reducers";
 
 const ChannelPage: React.FC = (): JSX.Element => {
   //about channel info hook
-  const [channelList, setChannelList] = useState<ChannelList[]>([]);
-  const [channelInfo, setChannelInfo] = useState<ChannelInfo>({ title: "" });
+  const [channelList, setChannelList] = useState<ChannelList[]>();
+  const [channelInfo, setChannelInfo] = useState<ChannelInfo>({});
   const [channelSummary, setChannelSummary] = useState<ChannelSummary>();
   const [channelDaily, setChannelDaily] = useState<ChannelDaily>();
 
@@ -52,7 +52,7 @@ const ChannelPage: React.FC = (): JSX.Element => {
   //set search result
   useEffect(() => {
     if (searchInput !== null) {
-      let select: any = channelList.map((list) => {
+      let select: any = channelList?.map((list) => {
         if (list.title?.includes(searchInput)) {
           return list;
         }

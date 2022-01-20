@@ -6,7 +6,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import SearchBar from './SearchBar';
-import VideoList from './VideoList';
 import VideoListTable from './VideoListTable';
 
 const PopupSearchBar = (props: any) => {

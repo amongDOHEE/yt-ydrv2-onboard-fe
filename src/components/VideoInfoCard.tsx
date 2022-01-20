@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import { VideoInfo } from '../interface/video_Interface';
+import { VideoInfo } from '../interface';
 
 const Img = styled('img')({
   margin: 'auto',

@@ -13,7 +13,7 @@ export interface ChannelList {
 }
 
 export interface ChannelInfo {
-  title: string
+  title?: string
   total_views?: number
   total_videos?: number
   published_at?: Date
@@ -21,24 +21,24 @@ export interface ChannelInfo {
 }
 
 export interface ChannelSummary {
-  subs_in_views?: number
-  video_life_duration?: number
-  avg_view_per_viewer?: number
-  rpm?: number
-  traffic?: {
-    name?: string[]
-    views?: number
-    rate?: number
+  subs_in_views: number
+  video_life_duration: number
+  avg_view_per_viewer: number
+  rpm: number
+  traffic: {
+    name: string[]
+    views: number
+    rate: number
   }
-  thumbnail_click_rate?: number
-  comment?: {
-    positive?: number
-    nagative?: number
+  thumbnail_click_rate: number
+  comment: {
+    positive: number
+    nagative: number
   }
 }
 
 export interface ChannelDaily {
   total_views: number[]
-  total_subscribers?: number[]
-  est_partner_rev?: number[]
+  total_subscribers: number[]
+  est_partner_rev: number[]
 } 

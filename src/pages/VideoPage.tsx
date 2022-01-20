@@ -17,7 +17,7 @@ import PopupSearchBar from "../components/PopupSearchBar";
 
 const VideoPage: React.FC = (): JSX.Element => {
   //about channel info hook
-  const [videoInfo, setVideoInfo] = useState<VideoInfo>({ title: "" });
+  const [videoInfo, setVideoInfo] = useState<VideoInfo>({});
   const [videoSummary, setVideoSummary] = useState<VideoSummary>();
 
   //useInput -> find correct search result
