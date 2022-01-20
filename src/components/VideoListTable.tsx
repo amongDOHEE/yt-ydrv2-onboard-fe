@@ -1,4 +1,4 @@
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import {withStyles, makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -6,10 +6,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { VideoList } from '../interface';
-import { useDispatch } from 'react-redux';
+import {VideoList} from '../interface';
+import {useDispatch} from 'react-redux';
 
-const StyledTableCell = withStyles((theme) => ({
+const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
@@ -19,7 +19,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
+const StyledTableRow = withStyles(theme => ({
   root: {
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
@@ -33,14 +33,12 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 export const VideoListTable = (props: any) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const clickVideo = (e: any) => {
-    dispatch({ type: 'SELECT', channelId: e.currentTarget.innerText });
+    dispatch({type: 'SELECT', channelId: e.currentTarget.innerText});
     props.close();
   };
 
@@ -60,14 +58,18 @@ export const VideoListTable = (props: any) => {
               <StyledTableCell component="th" scope="row">
                 {row.title}
               </StyledTableCell>
-              <StyledTableCell align="right" onClick={(e) => clickVideo(e)}>{row.video_id}</StyledTableCell>
-              <StyledTableCell align="right">{row.channel_title}</StyledTableCell>
+              <StyledTableCell align="right" onClick={e => clickVideo(e)}>
+                {row.video_id}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {row.channel_title}
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default VideoListTable;

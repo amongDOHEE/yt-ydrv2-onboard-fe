@@ -1,9 +1,10 @@
-import { combineReducers } from "redux";
-import { searchId, searchTitle } from "./search";
+// eslint-disable-next-line node/no-extraneous-import
+import {combineReducers} from 'redux';
+import {searchId, searchTitle} from './search';
 
 const rootReducer = combineReducers({
   input: searchTitle,
-  channelId: searchId
+  channelId: searchId,
 });
 
 export default rootReducer;

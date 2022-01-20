@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Dialog, { DialogProps } from '@mui/material/Dialog';
+import Dialog, {DialogProps} from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -24,17 +24,16 @@ const PopupSearchBar = (props: any) => {
   const descriptionElementRef = React.useRef<HTMLElement>(null);
   React.useEffect(() => {
     if (open) {
-      const { current: descriptionElement } = descriptionElementRef;
+      const {current: descriptionElement} = descriptionElementRef;
       if (descriptionElement !== null) {
         descriptionElement.focus();
       }
     }
   }, [open]);
 
-
   return (
     <div>
-      <SearchBar type={"video"} enterFunc={handleClickOpen('paper')} />
+      <SearchBar type={'video'} enterFunc={handleClickOpen('paper')} />
       <Dialog
         open={open}
         onClose={handleClose}
@@ -44,16 +43,16 @@ const PopupSearchBar = (props: any) => {
       >
         <DialogTitle id="scroll-dialog-title">Videos</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
-          <DialogContentText><b>검색된 비디오</b></DialogContentText><br />
+          <DialogContentText>
+            <b>검색된 비디오</b>
+          </DialogContentText>
+          <br />
           <DialogContentText
             id="scroll-dialog-description"
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            <VideoListTable
-              videoList={props.videolist}
-              close={handleClose}
-            />
+            <VideoListTable videoList={props.videolist} close={handleClose} />
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -62,6 +61,6 @@ const PopupSearchBar = (props: any) => {
       </Dialog>
     </div>
   );
-}
+};
 
 export default PopupSearchBar;
