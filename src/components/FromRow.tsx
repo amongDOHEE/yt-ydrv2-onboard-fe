@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoCard from './InfoCard';
 import {Box, Grid} from '@mui/material';
-//modify
+
 interface Rows {
   firstRow: CardInfo[];
   secondRow: CardInfo[];
