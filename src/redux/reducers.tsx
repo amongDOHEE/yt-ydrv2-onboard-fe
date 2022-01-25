@@ -1,4 +1,3 @@
-// eslint-disable-next-line node/no-extraneous-import
 import {combineReducers} from 'redux';
 import {searchId, searchTitle} from './search';
 
