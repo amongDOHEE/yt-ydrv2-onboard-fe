@@ -40,17 +40,16 @@ jobs:
       - name: Build                   # React Build
         run: npm run build
         env:
-          build_args:
-            REACT_APP_KEY=${{ secrets.REACT_APP_KEY }} 
-            REACT_APP_SOCIAL=${{ secrets.REACT_APP_SOCIAL }}
-            REACT_APP_VERIFY=${{ secrets.REACT_APP_VERIFY }}
-            REACT_APP_CHANNEL_SEARCH=${{ secrets.REACT_APP_CHANNEL_SEARCH }}
-            REACT_APP_CHANNEL_BASIC=${{ secrets.REACT_APP_CHANNEL_BASIC }} 
-            REACT_APP_CHANNEL_INFO=${{ secrets.REACT_APP_CHANNEL_INFO }}
-            REACT_APP_CHANNEL_SUMMARY=${{ secrets.REACT_APP_CHANNEL_SUMMARY }} 
-            REACT_APP_VIDEO_LIST=${{ secrets.REACT_APP_VIDEO_LIST }}
-            REACT_APP_VIDEO_SUMMARY=${{ secrets.REACT_APP_VIDEO_SUMMARY }} 
-            REACT_APP_VIDEO_INFO=${{ secrets.REACT_APP_VIDEO_INFO }}
+          REACT_APP_KEY: ${{ secrets.REACT_APP_KEY }} 
+          REACT_APP_SOCIAL: ${{ secrets.REACT_APP_SOCIAL }}
+          REACT_APP_VERIFY: ${{ secrets.REACT_APP_VERIFY }}
+          REACT_APP_CHANNEL_SEARCH: ${{ secrets.REACT_APP_CHANNEL_SEARCH }}
+          REACT_APP_CHANNEL_BASIC: ${{ secrets.REACT_APP_CHANNEL_BASIC }} 
+          REACT_APP_CHANNEL_INFO: ${{ secrets.REACT_APP_CHANNEL_INFO }}
+          REACT_APP_CHANNEL_SUMMARY: ${{ secrets.REACT_APP_CHANNEL_SUMMARY }} 
+          REACT_APP_VIDEO_LIST: ${{ secrets.REACT_APP_VIDEO_LIST }}
+          REACT_APP_VIDEO_SUMMARY: ${{ secrets.REACT_APP_VIDEO_SUMMARY }} 
+          REACT_APP_VIDEO_INFO: ${{ secrets.REACT_APP_VIDEO_INFO }}
       
        # Setup gcloud CLI
       - id: auth
