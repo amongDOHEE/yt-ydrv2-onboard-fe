@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { VideoInfo, VideoList, VideoSummary } from '../interface/video_Interface';
 
-const video_search_URL: string = process.env.REACT_APP_VIDEO_LIST + '';
-const video_info_URL: string = process.env.REACT_APP_VIDEO_INFO + '';
-const video_summary_URL: string = process.env.REACT_APP_VIDEO_SUMMARY + '';
+const video_search_URL = `${process.env.REACT_APP_VIDEO_LIST}`;
+const video_info_URL = `${process.env.REACT_APP_VIDEO_INFO}`;
+const video_summary_URL = `${process.env.REACT_APP_VIDEO_SUMMARY}`;
 
-/*call api -> set type & format -> return data*/
+/* call api -> set type & format -> return data */
 export const getVideo_List = async (keyword: string): Promise<VideoList[]> => {
     const empty: VideoList[] = [];
 
@@ -16,13 +16,11 @@ export const getVideo_List = async (keyword: string): Promise<VideoList[]> => {
             },
         });
         if (response && response.status === 200) {
-            const channelId: VideoList[] = response.data.map((videoInfo: any) => {
-                return {
-                    title: videoInfo.title,
-                    video_id: videoInfo.video_id,
-                    channel_title: videoInfo.channel_title,
-                };
-            });
+            const channelId: VideoList[] = response.data.map((videoInfo: any) => ({
+                title: videoInfo.title,
+                video_id: videoInfo.video_id,
+                channel_title: videoInfo.channel_title,
+            }));
             return channelId;
         }
     } catch (e) {
