@@ -39,16 +39,7 @@ jobs:
 
       - name: Build                   # React Build
         run: npm run build
-      
-       # Setup gcloud CLI
-      - id: auth
-        uses: google-github-actions/auth@v0.4.0
-        with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.3.0
-        with:
+        env:
           build_args:
             REACT_APP_KEY=${{ secrets.REACT_APP_KEY }} 
             REACT_APP_SOCIAL=${{ secrets.REACT_APP_SOCIAL }}
@@ -60,6 +51,15 @@ jobs:
             REACT_APP_VIDEO_LIST=${{ secrets.REACT_APP_VIDEO_LIST }}
             REACT_APP_VIDEO_SUMMARY=${{ secrets.REACT_APP_VIDEO_SUMMARY }} 
             REACT_APP_VIDEO_INFO=${{ secrets.REACT_APP_VIDEO_INFO }}
+      
+       # Setup gcloud CLI
+      - id: auth
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.3.0
 
       - name: Use gcloud CLI
         run: gcloud info
